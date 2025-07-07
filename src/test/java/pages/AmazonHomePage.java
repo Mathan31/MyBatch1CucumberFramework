@@ -15,7 +15,7 @@ public class AmazonHomePage {
 	private By productNameTxt = By.id("twotabsearchtextbox");
 	private By prodCatagoryDrop = By.id("searchDropdownBox");
 	private By searchButton = By.id("nav-search-submit-button");
-	private By searchResult = By.xpath("(//div[@class='a-section a-spacing-small a-spacing-top-small']/span)[1]");
+	private By searchResult = By.xpath("(//h2[@class='a-size-base a-spacing-small a-spacing-top-small a-text-normal']/span)[1]");
 	private String sURL = PropertyReader.readDataFromPropertyFile("environment", "amazon");
 	
 	public AmazonHomePage(WebDriver driver) {

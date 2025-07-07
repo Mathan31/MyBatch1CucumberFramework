@@ -16,8 +16,8 @@ public class EbayHomePage {
 	private String sURL =  PropertyReader.readDataFromPropertyFile("environment", "ebay");;
 	private By productNameTxt = By.id("gh-ac");
 	private By prodCatagoryDrop = By.id("gh-cat");
-	private By searchButton = By.id("gh-btn");
-	private By searchResult = By.xpath("//h1[@class='srp-controls__count-heading']/span");
+	private By searchButton = By.xpath("//span[text()='Search']");
+	private By searchResult = By.xpath("(//h1[@class='srp-controls__count-heading']/span)[1]");
 	
 	public EbayHomePage(WebDriver driver) {
 		this.driver = driver;

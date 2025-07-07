@@ -1,28 +1,23 @@
-Feature: Ebay Product Search Validation
+@Complete
+Feature: Ebay Search by providing values from diff source
 
-Background: Pre-Condition for Ebay Search
+  Background: Ebay Search Pre-Condition
+    Given Naviagate to Ebay URL
 
- Given I Navigate to Ebay URL
-	
 	@Smoke
-  Scenario: Ebay Search with Hardcoded value from Step Definition file
- 
-  When I Enter the product name and selected the product catagory
-  And I click on Search button
-  Then I validate the search result
-  And I close the browser
-
-  
-  Scenario Outline: Ebay Search with multiple values from Feature file using Scenario Outline with Examples
-  Given I Open prefered list of Browser values based on <BrowserType>
-  And I Navigate to Ebay URL
-  When I Enter the multiple product name as <ProductName> and selected the multple product catagory as <ProductCatagory>
-  And I click on Search button
-  Then I validate the search result
-  And I close the browser
-  
-  Examples:
-  | BrowserType | ProductName | ProductCatagory           |
-  |           1 | Samsung     | Cell Phones & Accessories |
-  |           9 | Java        | Books                     |
-  
+  Scenario: Ebay Search with Hardcoded value from step definition file
+    When Enter the search product name and product catagory
+    And Click on Search button
+    Then User should see the search result
+    
+	@Regression 
+  Scenario Outline: Ebay Search with Hardcoded multiple value from feature file
+    When Enter the multiple search product name as <productName> and multiple product catagory as <productCatagory>
+    And Click on Search button
+    Then User should see the search result
+		
+		@Mobile
+    Examples: 
+      | productName | productCatagory           |
+      | Samsung     | Cell Phones & Accessories |
+      | Redmi       | Cell Phones & Accessories |
